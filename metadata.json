@@ -1,0 +1,31 @@
+{
+  "name": "PALASH MTB-MLE Multilingual Education Assistant",
+  "shortName": "PALASH MTB-MLE",
+  "version": "1.0.0",
+  "description": "Offline-first Hindi, English, and tribal languages (Ho, Mundari, Santhali) voice translation, NIPUN Bharat FLN competency dashboard, and auto-generated bilingual worksheets for Jharkhand primary educators.",
+  "programme": "PALASH Mother Tongue-Based Multilingual Education (MTB-MLE) — Jharkhand",
+  "curriculumAlignment": "NIPUN Bharat Mission (Foundational Literacy and Numeracy - Grades 1 to 3)",
+  "supportedLanguages": {
+    "bridgeLanguages": [
+      { "name": "Hindi", "script": "Devanagari", "isoCode": "hi-IN" },
+      { "name": "English", "script": "Latin", "isoCode": "en-IN" }
+    ],
+    "indigenousLanguages": [
+      { "name": "Santhali", "script": "Ol Chiki", "unicodeRange": "U+1C50–U+1C7F" },
+      { "name": "Ho", "script": "Warang Chiti", "unicodeRange": "U+118A0–U+118FF" },
+      { "name": "Mundari", "script": "Devanagari", "unicodeRange": "U+0900–U+097F" }
+    ]
+  },
+  "edgeRuntimeSpecs": {
+    "targetOS": "Android 9.0+ (arm64-v8a)",
+    "offlineMode": true,
+    "maxRamBudgetMB": 800,
+    "targetPipelineLatencyMs": 3000,
+    "engines": {
+      "asr": "whisper.cpp (INT8 quantized GGUF via JNI)",
+      "nmt": "CTranslate2 / ONNX Runtime Mobile (INT8)",
+      "tts": "Piper TTS (VITS ONNX) + Formant Phonetic Synthesizer",
+      "storage": "SQLite Local Corpus"
+    }
+  }
+}
